@@ -13,11 +13,11 @@ class HouseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('houses')->insert([
-            [
-                'house_code' => 'Rumah A01',
-                'status' => 'Dihuni'
-            ]
-        ]);
+        // DB::table('houses')->insert([
+        //     [
+        //         'house_code' => 'Rumah A01',
+        //         'status' => 'Dihuni'
+        //     ]
+        // ]);
     }
 }
