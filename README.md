@@ -101,7 +101,7 @@ php artisan key:generate
 
 ---
 
-## 6. Create Database & Run Migration
+## 6. Prepare Database
 
 Buat database baru dengan nama:
 
@@ -109,11 +109,44 @@ Buat database baru dengan nama:
 rt-management
 ```
 
-Kemudian jalankan migration.
+Setelah database dibuat, Anda dapat memilih salah satu metode berikut.
+
+### Option 1 — Laravel Migration
+
+Metode ini akan membuat seluruh struktur tabel menggunakan migration Laravel.
 
 ```bash
 php artisan migrate
 ```
+
+---
+
+### Option 2 — Import SQL File
+
+Repository ini juga menyediakan file SQL yang berisi struktur database.
+
+Lokasi file:
+
+```text
+database/sql/rt-management.sql
+```
+
+> Nama file sesuaikan dengan file SQL yang ada di repository.
+
+Import file tersebut menggunakan salah satu cara berikut:
+
+- phpMyAdmin → **Import**
+- MySQL Workbench
+- DBeaver
+- atau menggunakan MySQL CLI
+
+> Setelah proses import selesai, database siap digunakan tanpa menjalankan migration.
+
+---
+
+> **Note**
+>
+> Gunakan **salah satu metode saja** (Migration **atau** Import SQL). Tidak perlu menjalankan migration setelah database di-import dari file SQL.
 
 ---
 
