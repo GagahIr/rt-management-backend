@@ -2,7 +2,13 @@
 
 Backend aplikasi **RT Management** yang dibangun menggunakan **Laravel 10** dan **Vite**.
 
-Dokumen ini menjelaskan cara menginstal dan menjalankan proyek pada lingkungan pengembangan (**Local Development Environment**).
+Repository ini merupakan **REST API** yang digunakan oleh aplikasi frontend RT Management.
+
+> 🎨 **Frontend Repository**
+>
+> https://github.com/GagahIr/rt-management-frontend
+
+Frontend akan mengonsumsi seluruh endpoint API yang disediakan oleh backend ini. Oleh karena itu, backend harus dijalankan terlebih dahulu sebelum menjalankan aplikasi frontend.
 
 ---
 
