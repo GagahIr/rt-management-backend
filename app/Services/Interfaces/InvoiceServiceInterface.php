@@ -3,11 +3,13 @@
 namespace App\Services\Interfaces; 
 
 use App\Models\Invoice;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 interface InvoiceServiceInterface
 {
     public function getAll(): Collection;
+    public function query(): Builder;
     public function create(array $data): Invoice;
     public function update(int $id, array $data): Invoice;
     public function delete(int $id): bool;

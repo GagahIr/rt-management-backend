@@ -68,6 +68,7 @@ Route::prefix('expense')->group(function () {
 
 Route::prefix('invoice')->group(function () {
     Route::get('/', [InvoiceController::class, 'getAll']);
+    Route::get('/datatable', [InvoiceController::class, 'dataTable']);
     Route::post('/', [InvoiceController::class, 'store']);
     Route::post('/advance', [InvoiceController::class, 'storeAdvance']);
     Route::put('/{id}', [InvoiceController::class, 'update']);

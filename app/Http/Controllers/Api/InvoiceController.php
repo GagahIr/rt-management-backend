@@ -8,6 +8,7 @@ use App\Models\House;
 use App\Services\Interfaces\InvoiceServiceInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 final class InvoiceController extends ApiController
 {
@@ -26,6 +27,19 @@ final class InvoiceController extends ApiController
         } catch (\Throwable $th) {
             return $this->error($th);
         }
+    }
+
+    public function dataTable(Request $request)
+    {
+            try {
+                $result = $this->invoiceService->query();
+                return DataTables::of($result)->make(true);
+            } catch (\Throwable $th) {
+                return $this->error($th);
+            }
+    
+
+        return response()->json(['message' => 'Bad Request'], 400);
     }
 
     public function store(InvoiceRequest $request): JsonResponse

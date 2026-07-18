@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Invoice;
 use App\Repositories\Interfaces\InvoiceRepositoryInterface;
 use App\Services\Interfaces\InvoiceServiceInterface;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -20,6 +21,11 @@ class InvoiceService implements InvoiceServiceInterface
     public function getAll(): Collection
     {
         return $this->invoiceRepository->getAll();
+    }
+
+    public function query(): Builder 
+    {
+        return $this->invoiceRepository->query();
     }
 
     public function create(array $data): Invoice
@@ -89,9 +95,9 @@ class InvoiceService implements InvoiceServiceInterface
     {
         return $this->invoiceRepository->generateMonthlyBulk($month, $year);
     }
-    
-     public function getUnpaidInvoices(int $month, int $year): Collection
-     {
+
+    public function getUnpaidInvoices(int $month, int $year): Collection
+    {
         return $this->invoiceRepository->getUnpaidInvoices($month, $year);
-     }
+    }
 }

@@ -6,6 +6,7 @@ use App\Models\House;
 use App\Models\Invoice;
 use App\Models\PaymentTypes;
 use App\Repositories\Interfaces\InvoiceRepositoryInterface;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -28,6 +29,11 @@ class InvoiceRepository implements InvoiceRepositoryInterface
             ->orderBy('period_year', 'desc')
             ->orderBy('period_month', 'desc')
             ->get();
+    }
+
+    public function query(): Builder
+    {
+        return $this->invoiceModel->with('house', 'resident', 'paymentType');
     }
 
     public function create(array $data): Invoice
